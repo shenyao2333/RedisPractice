@@ -1,0 +1,14 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: provider-cache
+  redis:
+    cluster:
+      nodes: 192.168.2.121:6379,192.168.2.121:6380,192.168.2.121:6381
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
