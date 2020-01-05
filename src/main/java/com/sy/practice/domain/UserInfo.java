@@ -1,4 +1,4 @@
-package com.sy.practice.pojo;
+package com.sy.practice.domain;
 
 import lombok.Data;
 

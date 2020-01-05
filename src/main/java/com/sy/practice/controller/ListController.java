@@ -29,19 +29,19 @@ public class ListController {
         objects.add("2");
         objects.add("3");
         objects.add("4");
-        redisUtil.lSet("list",objects);
+        redisUtil.listSet("list",objects);
     }
 
 
     @GetMapping("/test2")
     public void test2(){
-        List<Object> list = redisUtil.lGet("list", 0, -1);
+        List<Object> list = redisUtil.listGet("list", 0, -1);
         System.out.println(list);
     }
 
     @GetMapping("/test3")
     public Object test3(Long i){
-        return redisUtil.lGetIndex("list",i);
+        return redisUtil.listGetIndex("list",i);
     }
 
 

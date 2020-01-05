@@ -30,7 +30,7 @@ public class HashController {
         map.put("3","叁");
         Object hget = redisUtil.hmset("user", map,122);
         System.out.println(hget);
-        return redisUtil.hmget("user");
+        return redisUtil.hget("user");
     }
 
 
@@ -38,6 +38,9 @@ public class HashController {
     public Object test2(){
         return redisUtil.hget("user","1");
     }
+
+
+
 
 
 

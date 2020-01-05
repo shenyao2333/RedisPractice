@@ -19,9 +19,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * @date ：Created in 2020.1.3 22:21
  * @version:
  */
-@ConditionalOnClass(RedisOperations.class)
+
 @Configuration
-@EnableConfigurationProperties(RedisProperties.class)
 public class RedisAutoConfiguration {
 
 
@@ -33,11 +32,9 @@ public class RedisAutoConfiguration {
         return template;
     }
 
-
     @Bean
     @ConditionalOnMissingBean
-    public StringRedisTemplate stringRedisTemplate(
-        RedisConnectionFactory redisConnectionFactory) {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(redisConnectionFactory);
         return template;

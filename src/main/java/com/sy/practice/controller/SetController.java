@@ -1,6 +1,5 @@
 package com.sy.practice.controller;
 
-import com.sy.practice.pojo.UserInfo;
 import com.sy.practice.utils.RedisUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +22,28 @@ public class SetController {
 
     @GetMapping("/test1")
     public void test1(){
-        redisUtil.sSet("set","1","2","3");
-        redisUtil.sSet("set1","1","2","3");
+        long set = redisUtil.sSet("set", "1", "2", "3");
+        long set1 = redisUtil.sSet("set1", "1", "2", "3");
     }
+
+    @GetMapping("/test2")
+    public Object test2(){
+        return redisUtil.getSetIs("set","1");
+    }
+
+    /**
+     * 测试set去重功能。
+     * @return
+     */
+    @GetMapping("/test3")
+    public Object test3(){
+        long set = redisUtil.sSet("set", "1");
+        if (set>0){
+            return "添加成功";
+        }
+        return "添加失败";
+    }
+
 
 
 }

@@ -1,8 +1,7 @@
 package com.sy.practice.controller;
 
-import com.sy.practice.pojo.UserInfo;
+import com.sy.practice.domain.UserInfo;
 import com.sy.practice.utils.RedisUtil;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
