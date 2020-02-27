@@ -1,13 +1,11 @@
-package com.sy.practice.controller;
+package com.sy.practice.controller.small;
 
-import com.sy.practice.domain.UserInfo;
 import com.sy.practice.utils.RedisUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Set;
 
 /**
  * <p>

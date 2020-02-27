@@ -1,4 +1,4 @@
-package com.sy.practice.controller;
+package com.sy.practice.controller.small;
 
 import com.sy.practice.utils.RedisUtil;
 import org.springframework.web.bind.annotation.GetMapping;

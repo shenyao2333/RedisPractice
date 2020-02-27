@@ -1,15 +1,16 @@
 package com.sy.practice;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@ComponentScan({"com.sy.practice.utils","com.sy.practice.controller","com.sy.practice.config","com.sy.practice.mapper"})
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@EnableCaching
+@SpringBootApplication
+@MapperScan(basePackages = "com.sy.practice.mapper")
 public class PracticeApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(PracticeApplication.class, args);
     }
