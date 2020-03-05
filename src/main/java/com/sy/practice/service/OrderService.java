@@ -1,10 +1,12 @@
 package com.sy.practice.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.sy.practice.domain.Order;
 import com.sy.practice.mapper.OrderMapper;
 @Service
+@Slf4j
 public class OrderService{
 
     @Resource
@@ -27,6 +29,7 @@ public class OrderService{
 
 
     public Order selectByPrimaryKey(Integer id) {
+        log.debug("0-->");
         return orderMapper.selectByPrimaryKey(id);
     }
 
@@ -45,5 +48,7 @@ public class OrderService{
         Order order = new Order();
         return orderMapper.selectByAll(order);
     }
+
+
 
 }
