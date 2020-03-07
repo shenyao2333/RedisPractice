@@ -1,11 +1,10 @@
 package com.sy.practice.controller.domain;
 
+import com.sy.practice.domain.UserInfo;
 import com.sy.practice.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -38,30 +37,29 @@ public class DomainTest {
     @GetMapping("/test3")
     @Cacheable(value = "test",key = "#i")
     public Object test3(int i){
-        log.info("---进来了---");
+        log.info("---test3---");
         return i;
     }
 
     @GetMapping("/test4")
     @Cacheable(value = "test4")
     public Object test4(int i){
-        log.info("---进来了---");
+        log.info("---test4---");
         return i;
     }
 
-    @GetMapping("/test5")
-    @Cacheable(value = "test")
-    public Object test5(int i){
-        log.info("---进来了---");
-        return i;
+
+    @PostMapping("/test5")
+    @Cacheable(value = {"user","123"},key = "#userInfo.getName()")
+    public Object test5(@RequestBody UserInfo userInfo){
+        log.info("--test5--");
+        return userInfo;
     }
 
-    @GetMapping("/test6")
-    @Cacheable(value = "test",key = "#i")
-    public Object test6(int i){
-        log.info("---进来了---");
-        return i;
-    }
+
+
+
+
 
 
 

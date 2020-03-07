@@ -61,7 +61,11 @@ public class RedisConfig  extends CachingConfigurerSupport {
         return template;
     }
 
-
+    /**
+     * 定义使用注解操作缓存
+     * @param factory
+     * @return
+     */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
@@ -72,11 +76,21 @@ public class RedisConfig  extends CachingConfigurerSupport {
         return new RedisCacheManager(RedisCacheWriter.nonLockingRedisCacheWriter(factory), redisCacheConfiguration);
     }
 
+
+    /**
+     * key 序列化
+     * @return
+     */
     private RedisSerializer<String> stringRedisSerializer() {
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
         return redisSerializer;
     }
 
+
+    /**
+     * hash定义序列化
+     * @return
+     */
     private Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer() {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(
                 Object.class);
